@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(120deg,#81ecec,#60a3bc,#6c5ce7);
+    height: 100vh;
+    overflow: hidden;
+}
+.login{
+    transition: opacity .5s ease ;
+}
+.center{                                        /*PARTIE LOGIN*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 380px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+.center h1{
+    text-align: center;
+    font-size: 36px;
+    padding: 0 0 20px 0 ;
+    border-bottom: 1px solid silver;
+
+}
+
+.center form{
+    padding: 0 40px;
+    box-sizing: border-box;    
+}
+
+form .text_field{
+    position: relative;    
+    margin: 40px 0;
+}
+.text_field input{
+    width: 100%;
+    font-size: 16px;
+    padding: 0 5px;
+    height: 40px;
+    border: none;
+    background: none;
+    outline: none;
+    border-bottom: 2px solid silver;
+}
+.text_field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #adadad;
+    pointer-events: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: .5s;
+}
+.text_field input:focus ~ label,
+.text_field input:valid ~ label{
+    top: -5px;
+    color: #a29bfe;
+}
+
+.text_field .underline{
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    width: 100%;    
+}
+.text_field .underline::before{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: #6c5ce7;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+.text_field input:focus ~ .underline::before,
+.text_field input:valid ~ .underline::before{
+    transform: scaleX(1);
+}
+.red_text {
+    margin-top: 2px;
+    color: red;
+    position: absolute;
+    left: 5px;
+    font-size: 12px;
+}
+.candidate p{
+    position: relative;
+    font-size: 13px;
+    top: -10px; left: 5px;
+    color: #adadad;
+}
+    
+.continuer input[type="submit"]{
+    position: relative;
+    top: 90%;
+    left:16%;
+    width: 70%;
+    height: 40px;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 25px; 
+    outline: none;
+    background: #a29bfe;
+    color: #e9f4fb; 
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: .5s;
+}
+.continuer input[type="submit"]:hover{
+    background: #6c5ce7;
+    transition: .5s;
+}
+
+                                                                            /*PARTIE DE E-VOTING*/
+
+
+.vote_page,.container,.container_afterVote, .results_container{ /*transition de la premiere page*/
+    transition: opacity .5s ease .5s;
+}                                                                            
+.vote_page h1, .display_results h1{ /* evoting logo*/
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+}
+
+.vote_page  .container , .container_afterVote, .not_ready{ /*setting the containers*/
+    position: absolute;
+    top: 55%;
+    left: 50%;    
+    transform: translate(-50%, -50%);
+    background: #e7ebec;
+    width: 700px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.vote_page .container h2 ,.results_container h2{
+    position: absolute;
+    color: #353b48;
+    text-align: center;
+    width: 100%;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: .5s;
+}
+.vote_page .voteSection{
+    position: absolute;
+    width: 450px;
+    top:53%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+}
+
+/*setting up the radio buttons*/
+.vote_page .inputGroup {
+    background-color: #f5f6fa;
+    border-radius: 20px;
+    display: block;
+    margin: 10px 0;
+    width: 350px;
+    position: relative;
+}
+.vote_page .inputGroup label {
+    padding: 12px 30px;
+    width: 100%;
+    display: block;
+    text-align: left;
+    background-color: #fff;
+    color: #353b48;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: color 200ms ease-in;
+    overflow: hidden;
+    text-transform: capitalize;
+    border-radius: 20px;
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
+}
+.vote_page .inputGroup label:before {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    content: '';
+    background-color: #5562eb;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale3d(1, 1, 1);
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    z-index: -1;
+}
+#candidat{
+    text-transform: capitalize;
+}
+.vote_page .inputGroup label:after {
+    width: 29px;
+    height: 29px;
+    content: '';
+    border: 2px solid #d1d7dc;
+    border-radius: 20px;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+    background-repeat: no-repeat;
+    background-position: 3px 3px;
+    border-radius: 50%;
+    z-index: 2;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: all 200ms ease-in;
+}
+.vote_page .inputGroup input:checked ~ label {
+    color: #fff;
+}
+.vote_page .inputGroup input:checked ~ label:before {
+    transform: translate(-50%, -50%) scale3d(56, 56, 1);
+    opacity: 1;
+}
+.vote_page .inputGroup input:checked ~ label:after {
+    background-color: #81ecec;
+    border-color: #81ecec;
+}
+.vote_page .inputGroup input {
+    width: 100%;
+    height: 100%;
+    order: 1;
+    z-index: 2;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    visibility: hidden;
+}
+/*buttons styling*/
+.vote_page .validate input[type="submit"], .container_afterVote button{
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    background: #5562eb;
+    color: #e9f4fb; 
+    border-radius: 25px;
+    margin: 5px;
+    height: 40px;
+    width: 90px; 
+    outline: none;
+    transition: .5s;
+    position: absolute;
+    top:83%;
+    left:83%;
+}
+.vote_page .validate input[type="submit"]:hover, .container_afterVote button:hover{
+    background: #5444cc;
+    transform: scale(1.1);
+}
+           /*confirmation afterVote and beforeVote*/
+.container_afterVote h2, .not_ready h2{
+    position: absolute;
+    color: #353b48;
+    top: 40%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    transition: .5s;
+}
+#candidat {
+    top: 51%;
+    font-weight: bold;
+    color: #182C61;
+}
+.not_ready p{
+    position: absolute;
+    top: 90%;
+    left: 5%;
+    font-size: 10px;
+}
+                                                                            /*3rd section:  DISPLAYING STATS*/
+.results_container{
+    position: absolute;
+    top: 55%;
+    left: 50%;    
+    transform: translate(-50%, -50%);
+    background: #e7ebec;
+    width: 650px;
+    height: 380px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    display: flex;
+    justify-content: space-around;
+}
+.display_results{
+    transition: opacity 1s ease 1s;
+}                                                
+#chartContainer{
+    position: relative;
+    top: 15%;
+    margin: 10px 15px;
+
+}
+
+                                                                            /*ADDING THE FADE IN FADE OUT*/
+.fadeOut{
+    opacity: 0;
+    pointer-events: none;
+}
+.fadeIn{
+    opacity: 1;
+    pointer-events: all;
+}
