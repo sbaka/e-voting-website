@@ -1,5 +1,5 @@
 # e-voting-website
-evoting website made with HTML CSS JS and PHP using WAMPP server  
+evoting website made with HTML CSS JS and PHP using WAMPP server  made in mai 2020
 ## made for a uni project:
 the purpose was to practice php and SQL request, it's very simple and straight forward. not for professional use just to demonstrate skills
 ## screens of the website
